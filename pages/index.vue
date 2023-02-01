@@ -16,7 +16,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import MyWorker from '~/worker/serviceworker.ts?worker&url'
+  import MyWorker from '~/assets/workers/serviceworker.ts?worker&url'
 
   import { ref, computed } from 'vue';
   import { useIntervalFn } from '@vueuse/core';

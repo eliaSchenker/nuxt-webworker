@@ -3,10 +3,24 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          chunkFileNames (chunkInfo) {
+            console.log(chunkInfo.name)         
+            if (chunkInfo.name.includes('workers')) { 
+              return '_nuxt/workers/[name].[hash].js'
+             }
+            return '_nuxt/[name].[hash].js'
+          }
+        }
+      }
+    }
+  },
   nitro: {
     routeRules: {
-      // Tried to add the header to the service worker script using nitro, which unfortunately doesn't work
-      '/worker/**': { headers: {'Service-Worker-Allowed': '/'} },
+      '/_nuxt/workers/**': { headers: {'Service-Worker-Allowed': '/'} },
     }
   }
 })

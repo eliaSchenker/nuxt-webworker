@@ -1,6 +1,6 @@
 import {defineNuxtPlugin} from "#app";
 //Import worker from the worker directory
-import MyWorker from '~/worker/serviceworker.ts?worker&url';
+import MyWorker from '~/assets/workers/serviceworker.ts?worker&url'
 
 // Plugin to register the service worker on app mount
 export default defineNuxtPlugin(nuxtApp => {
